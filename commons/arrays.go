@@ -1,4 +1,4 @@
-package utils
+package commons
 
 func FindFirstUsing[T any](ss []T, fn func(value T) bool) *T {
 	for _, value := range ss {

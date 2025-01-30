@@ -1,4 +1,4 @@
-package utils
+package commons
 
 import (
 	"testing"
@@ -23,13 +23,21 @@ func TestReduceFloat(t *testing.T) {
 	}
 	tests := []testCase{
 		{
-			name:   "with initial value",
-			args:   args[float64, float64]{ss: []float64{1.1, 1.2, 1.3}, reducer: func(total, n float64) float64 { return total + n }, initialValue: []float64{1}},
+			name: "with initial value",
+			args: args[float64, float64]{
+				ss:           []float64{1.1, 1.2, 1.3},
+				reducer:      func(total, n float64) float64 { return total + n },
+				initialValue: []float64{1},
+			},
 			wantEl: 4.6,
 		},
 		{
-			name:   "without initial value",
-			args:   args[float64, float64]{ss: []float64{1.1, 1.2, 1.3}, reducer: func(total, n float64) float64 { return total + n }, initialValue: []float64{}},
+			name: "without initial value",
+			args: args[float64, float64]{
+				ss:           []float64{1.1, 1.2, 1.3},
+				reducer:      func(total, n float64) float64 { return total + n },
+				initialValue: []float64{},
+			},
 			wantEl: 3.6,
 		},
 	}
@@ -54,13 +62,21 @@ func TestReduceInt(t *testing.T) {
 	}
 	tests := []testCase{
 		{
-			name:   "with initial value",
-			args:   args[int64, int64]{ss: []int64{1, 2, 3}, reducer: func(total, n int64) int64 { return total + n }, initialValue: []int64{1}},
+			name: "with initial value",
+			args: args[int64, int64]{
+				ss:           []int64{1, 2, 3},
+				reducer:      func(total, n int64) int64 { return total + n },
+				initialValue: []int64{1},
+			},
 			wantEl: 7,
 		},
 		{
-			name:   "without initial value",
-			args:   args[int64, int64]{ss: []int64{1, 2, 3}, reducer: func(total, n int64) int64 { return total + n }, initialValue: []int64{}},
+			name: "without initial value",
+			args: args[int64, int64]{
+				ss:           []int64{1, 2, 3},
+				reducer:      func(total, n int64) int64 { return total + n },
+				initialValue: []int64{},
+			},
 			wantEl: 6,
 		},
 	}
